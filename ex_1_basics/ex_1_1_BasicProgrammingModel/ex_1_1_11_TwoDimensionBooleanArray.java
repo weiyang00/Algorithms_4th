@@ -1,6 +1,6 @@
-package basics.basicProgrammingModel;
+package ex_1_basics.ex_1_1_BasicProgrammingModel;
 
-public class TwoDimensionBooleanArray_1_1_11 {
+public class ex_1_1_11_TwoDimensionBooleanArray {
 
     public static void main(String[] args) {
         //step 1:定义一个二维数组

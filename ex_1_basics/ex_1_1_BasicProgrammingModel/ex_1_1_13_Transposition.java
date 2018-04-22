@@ -1,16 +1,16 @@
-package basics.basicProgrammingModel;
+package ex_1_basics.ex_1_1_BasicProgrammingModel;
 
-public class Transposition_1_1_13 {
+public class ex_1_1_13_Transposition {
     public static void main(String[] args) {
         System.out.println("Hello World! Let's Go!");
-        int[][] ar ={{1},{2},{3}};
+        int[][] ar ={{1,1,1},{2},{3}};
 
         System.out.println("转置前----------------->");
-        TwoDimensionBooleanArray_1_1_11.printArray(ar);
+       ex_1_1_11_TwoDimensionBooleanArray.printArray(ar);
 
 
         System.out.println("转置后----------------->");
-        TwoDimensionBooleanArray_1_1_11.printArray( transposition2D(ar));
+        ex_1_1_11_TwoDimensionBooleanArray.printArray( transposition2D(ar));
     }
 
     public static int[][] transposition2D(int[][] array) {
