@@ -1,6 +1,6 @@
 package ex_1_basics.ex_1_1_BasicProgrammingModel;
 
-public class ex_1_1_14_Logarithm {
+public class ex_14_Logarithm {
     public static void main(String[] args) {
         System.out.println("Hello World!");
 

@@ -1,6 +1,6 @@
 package ex_1_basics.ex_1_1_BasicProgrammingModel;
 
-public class ex_1_1_15_Histogram {
+public class ex_15_Histogram {
 
     public static void main(String[] args) {
         int[] array = {1,4,0,5};
