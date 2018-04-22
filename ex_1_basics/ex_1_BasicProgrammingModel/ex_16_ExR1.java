@@ -1,6 +1,6 @@
-package ex_1_basics.ex_1_1_BasicProgrammingModel;
+package ex_1_basics.ex_1_BasicProgrammingModel;
 
-public class ex_16_exR1 {
+public class ex_16_ExR1 {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
