@@ -6,9 +6,6 @@ public class ex_1_1_14_Logarithm {
 
         System.out.println("不大于log2N的最大整数是 === " + lg2(34));
 
-        double n = 1;
-        int x = 5435;
-
     }
 
     public static int lg(int number) {
