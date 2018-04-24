@@ -1,0 +1,105 @@
+package ex_1_basics.ex_1_BasicProgrammingModel;
+
+import StdLib.In;
+import StdLib.StdIn;
+import StdLib.StdOut;
+
+import java.util.Arrays;
+
+public class Ex_28_Remove {
+
+    static int account = 0;//递归深度计数器
+
+    // precondition: array a[] is sorted ，循环实现
+    public static int rank1(int key, int[] a) {
+        System.out.println("开始排序， key === " + key);
+        int lo = 0,//低地址
+                hi = a.length - 1,//高地址
+                indent = 0;
+        while (lo <= hi) {
+            StdOut.printf("%s%-4d%d\n", repeat(4*indent++, ' '), lo, hi);
+
+            // Key is in a[lo..hi] or not present.
+            //此处的lo 作为索引初始的初始值，所以必须加，mid 表示数组中间值的索引（剩余有效元素的中间值），无效的元素并没有被删除
+            int mid = lo + (hi - lo) / 2;
+            if      (key < a[mid]) hi = mid - 1;
+            else if (key > a[mid]) lo = mid + 1;
+            else return mid;
+        }
+        return -1;
+    }
+
+    private static String repeat(int n, char c)
+    {
+        String s = "";
+        for (int i = 0; i < n; i++)
+            s += c;
+        return s;
+    }
+
+    public static void main(String[] args) {
+        int[] whitelist = In.readInts("../txt/largeW.txt");
+
+        System.out.println("加载文件完成， list.length === " + whitelist.length);
+        Arrays.sort(whitelist);
+
+        // read key; print if not in whitelist
+        while (!StdIn.isEmpty()) {
+            int key = StdIn.readInt();
+            int res = rank(key, whitelist);
+            if (res == -1)
+                StdOut.println(key);
+        }
+    }
+
+
+    public static int rank(int key, int[] a) {
+        return rank(key, a, 0, a.length - 1);
+    }
+
+    public static int rank(int key, int[] a, int lo, int hi) {
+        //如果key在a[]中， 它的索引不会小于lo且大于hi
+
+        ++account;
+        System.out.println("lo === "+ lo+", hi === "+hi+", account === "+account);
+
+        if(lo > hi)
+            return  -1;
+        int mid = lo + (hi - lo)/2;
+        if (key < a[mid])
+            return rank(key, a, lo, mid -1);
+        if (key > a[mid])
+            return rank(key, a, mid + 1, hi);
+        return mid;
+    }
+
+
+    public static void remove (int[] ints) {
+        int a ;
+        int count = 1;//计不同数字的数量
+        int[] initials = new int[ints.length] ;
+        a = initials[0] = ints[0];
+
+        //把相同的数字变成0
+        for(int i = ints.length - 1; i >= 0 ; i--) {
+            if(a != ints[i]) {
+                ++count;
+                 a = initials[i] = ints[i];
+            }
+        }
+
+        int[] resultArray = new int[count];
+        for (int i = ints.length - 1; i >=count ; i--)  {
+            if (ints[i] != 0){
+
+            }
+
+        }
+
+
+
+
+    }
+
+
+}

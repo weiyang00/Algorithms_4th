@@ -1,6 +1,6 @@
 package ex_1_basics.ex_1_BasicProgrammingModel;
 
-public class ex_27_Binomial {
+public class Ex_27_Binomial {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");

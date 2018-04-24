@@ -1,6 +1,6 @@
 package ex_1_basics.ex_1_BasicProgrammingModel;
 
-public class ex_20_Recursion {
+public class Ex_20_Recursion {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");

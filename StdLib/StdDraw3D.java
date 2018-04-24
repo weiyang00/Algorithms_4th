@@ -1,7 +1,10 @@
-package StdLib; /*************************************************************************
+/*
+package StdLib; */
+/*************************************************************************
  *  StdDraw3D.java
  *
- *************************************************************************/
+ *************************************************************************//*
+
 
 // Imports from java.
 
@@ -33,19 +36,26 @@ import java.util.*;
 
 // Imports from j3d.
 
+*/
 /**
  *  Info for javadoc intro here.
- */
+ *//*
+
+@Deprecated
 public final class StdDraw3D implements 
 MouseListener, MouseMotionListener, MouseWheelListener, 
 KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListener
 {
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *                      Global Variables                         *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /* Public constant values. */
+
+    */
+/* Public constant values. *//*
+
     //-------------------------------------------------------------------------
 
     // Preset colors.
@@ -76,7 +86,9 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
     public static final int FIXED_MODE = 4;
     public static final int IMMERSIVE_MODE = 5;
 
-    /* Global variables. */
+    */
+/* Global variables. *//*
+
     //-------------------------------------------------------------------------
 
     // GUI Components
@@ -162,7 +174,9 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
     private static boolean fullscreen = false;
     private static boolean immersive = false;
 
-    /* Final variables for default values. */
+    */
+/* Final variables for default values. *//*
+
     //-------------------------------------------------------------------------
 
     // Default square canvas dimension in pixels.
@@ -205,7 +219,9 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
     private static final Vector3D yAxis = new Vector3D(0, 1, 0);
     private static final Vector3D zAxis = new Vector3D(0, 0, 1);
 
-    /* Housekeeping. */
+    */
+/* Housekeeping. *//*
+
     //-------------------------------------------------------------------------
 
     // Singleton for callbacks - avoids generation of extra .class files.
@@ -221,13 +237,17 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         setCanvasSize(DEFAULT_SIZE, DEFAULT_SIZE); 
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *                      Initialization Methods                   *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /**
+
+    */
+/**
      * Initializes the 3D engine.
-     */
+     *//*
+
     private static void initialize () {
 
         numDivisions = DEFAULT_NUM_DIVISIONS;
@@ -325,9 +345,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     }
 
-    /**
+    */
+/**
      * Adds a Canvas3D to the given Panel p.
-     */
+     *//*
+
     private static void initializeCanvas () {
 
         Panel p = new Panel();
@@ -375,11 +397,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         canvasPanel = p;
     }
 
-    /**
+    */
+/**
      * Creates a menu bar as a basic GUI.
      * 
      * @return The created JMenuBar.
-     */
+     *//*
+
     private static JMenuBar createMenuBar () {
 
         menuBar = new JMenuBar();
@@ -557,10 +581,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void actionPerformed (ActionEvent e) {
         Object source = e.getSource();
 
@@ -592,45 +618,59 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
             setInfoDisplay(infoCheckBox.isSelected());
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void componentHidden(ComponentEvent e) { keysDown = new TreeSet<Integer>(); }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void componentMoved(ComponentEvent e) { keysDown = new TreeSet<Integer>(); }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void componentShown(ComponentEvent e) { keysDown = new TreeSet<Integer>(); }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void componentResized(ComponentEvent e) { keysDown = new TreeSet<Integer>(); }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void windowGainedFocus(WindowEvent e) { keysDown = new TreeSet<Integer>(); }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void windowLostFocus(WindowEvent e) { keysDown = new TreeSet<Integer>(); }
 
-    /**
+    */
+/**
      * Creates a blank BranchGroup with the proper capabilities.
-     */
+     *//*
+
     private static BranchGroup createBranchGroup () {
 
         BranchGroup bg = new BranchGroup();
@@ -643,9 +683,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return bg;
     }
 
-    /**
+    */
+/**
      * Creates a blank TransformGroup with the proper capabilities.
-     */
+     *//*
+
     private static TransformGroup createTransformGroup () {
 
         TransformGroup tg = new TransformGroup();
@@ -656,11 +698,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return tg;
     }
 
-    /**
+    */
+/**
      * Creates a blank Background with the proper capabilities.
      *
      * @return The created Background.
-     */
+     *//*
+
     private static Background createBackground () {
 
         Background background = new Background();
@@ -671,13 +715,15 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return background;
     }
 
-    /**
+    */
+/**
      * Creates a texture from the given filename.
      *
      * @param imageURL Image file for creating texture.
      * @return The created Texture.
      * @throws RuntimeException if the file could not be read.
-     */
+     *//*
+
     private static Texture createTexture (String imageURL) {
 
         TextureLoader loader;
@@ -704,13 +750,15 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return ap;
     }
 
-    /**
+    */
+/**
      * Creates an Appearance.
      *
      * @param imageURL Wraps a texture around from this image file.
      * @param fill If true, fills in faces. If false, outlines.
      * @return The created appearance.
-     */
+     *//*
+
     private static Appearance createAppearance (String imageURL, boolean fill) {
 
         Appearance ap = createBlankAppearance();
@@ -813,43 +861,57 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return shape;
     }
 
-    /**
+    */
+/**
      * Creates a blank BufferedImage.
      *
      * @return The created BufferedImage.
-     */
+     *//*
+
     private static BufferedImage createBufferedImage () {
         return new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
     }
 
-    /** Converts a Vector3D to a Vector3d. */
+    */
+/** Converts a Vector3D to a Vector3d. *//*
+
     private static Vector3d createVector3d (Vector3D v) {
         return new Vector3d(v.x, v.y, v.z);
     }
 
-    /** Converts three double scalars to a Vector3f. **/
+    */
+/** Converts three double scalars to a Vector3f. **//*
+
     private static Vector3f createVector3f (double x, double y, double z) {
         return new Vector3f((float)x, (float)y, (float)z);
     }
 
-    /** Converts a Vector3D to a Vector3f. */
+    */
+/** Converts a Vector3D to a Vector3f. *//*
+
     private static Vector3f createVector3f (Vector3D v) {
         return createVector3f(v.x, v.y, v.z);
     }
 
-    /** Converts a Vector3D to a Point3f. */
+    */
+/** Converts a Vector3D to a Point3f. *//*
+
     private static Point3f createPoint3f (Vector3D v) {
         return createPoint3f(v.x, v.y, v.z);
     }
 
-    /** Converts three double scalars to a Point3f. */
+    */
+/** Converts three double scalars to a Point3f. *//*
+
     private static Point3f createPoint3f (double x, double y, double z) {
         return new Point3f((float)x, (float)y, (float)z);
     }
 
-    /**
+    */
+/**
      * Creates a scanner from the filename or website name.
-     */
+     *//*
+
     private static Scanner createScanner (String s) {
 
         Scanner scanner;
@@ -879,17 +941,21 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *                  Scaling and Screen Methods                   *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /**
+
+    */
+/**
      * Sets the window size to w-by-h pixels.
      *
      * @param w The width as a number of pixels.
      * @param h The height as a number of pixels.
      * @throws a RuntimeException if the width or height is 0 or negative.
-     */
+     *//*
+
     public static void setCanvasSize (int w, int h) {
 
         setCanvasSize(w, h, false);
@@ -907,17 +973,21 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         initialize();
     }
 
-    /**
+    */
+/**
      * Sets the default scale for all three dimensions.
-     */
+     *//*
+
     public static void setScale () { setScale(DEFAULT_MIN, DEFAULT_MAX); }
 
-    /**
+    */
+/**
      * Sets the scale for all three dimensions.
      *
      * @param minimum The minimum value of each scale.
      * @param maximum The maximum value of each scale.
-     */
+     *//*
+
     public static void setScale (double minimum, double maximum) {
 
         min = minimum;
@@ -939,9 +1009,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         view.setBackClipDistance(DEFAULT_BACK_CLIP * zoom);
     }
 
-    /**
+    */
+/**
      * Scales the given x-coordinate from user coordinates into 2D pixel coordinates.
-     */
+     *//*
+
     private static float scaleX (double x) {
 
         double scale = 1;
@@ -950,9 +1022,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return (float)(width  * (x * scale - min) / (2 * zoom));
     }
 
-    /**
+    */
+/**
      * Scales the given y-coordinate from user coordinates into 2D pixel coordinates.
-     */
+     *//*
+
     private static float scaleY (double y) {
 
         double scale = 1;
@@ -961,9 +1035,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return (float)(height * (max - y * scale) / (2 * zoom));
     }
 
-    /**
+    */
+/**
      * Scales the given width from user coordinates into 2D pixel coordinates.
-     */
+     *//*
+
     private static double factorX (double w) {
 
         double scaleDist = width;
@@ -972,9 +1048,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return scaleDist  * (w / (2 * zoom));
     }
 
-    /**
+    */
+/**
      * Scales the given height from user coordinates into 2D pixel coordinates.
-     */
+     *//*
+
     private static double factorY (double h) {
 
         double scaleDist = height;
@@ -983,9 +1061,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return scaleDist * (h / (2 * zoom));
     }
 
-    /**
+    */
+/**
      * Scales the given x-coordinate from 2D pixel coordinates into user coordinates.
-     */
+     *//*
+
     private static double unscaleX (double xs) {
 
         double scale = 1;
@@ -994,9 +1074,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return (xs * (2 * zoom) / width + min) / scale;
     }
 
-    /**
+    */
+/**
      * Scales the given y-coordinate from 2D pixel coordinates into user coordinates.
-     */
+     *//*
+
     private static double unscaleY (double ys) {
 
         double scale = 1;
@@ -1005,86 +1087,109 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return (max - ys * (2 * zoom) / height) / scale;
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *                  Pen Properties Methods                       *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /**
+
+    */
+/**
      * Sets the pen color to the given color and transparency.
      *
      * @param col The given opaque color.
      * @param alpha The transparency value (0-255).
-     */
+     *//*
+
     public static void setPenColor (Color col, int alpha) {
         setPenColor(new Color(col.getRed(), col.getGreen(), col.getBlue(), alpha));
     }
 
-    /**
+    */
+/**
      * Sets the pen color to the default.
-     */
+     *//*
+
     public static void  setPenColor () { penColor = DEFAULT_PEN_COLOR; }
 
-    /**
+    */
+/**
      * Sets the pen color to the given color.
      *
      * @param col The given color.
-     */
+     *//*
+
     public static void  setPenColor (Color col) { penColor = col; }
 
     public static void setPenColor (int r, int g, int b) {
         penColor = new Color(r, g, b);
     }
 
-    /**
+    */
+/**
      * Returns the current pen color.
      *
      * @return The current pen color.
-     */
+     *//*
+
     public static Color getPenColor () { return penColor; }
 
-    /**
+    */
+/**
      * Sets the pen radius to the default value.
-     */
+     *//*
+
     public static void setPenRadius () { penRadius = DEFAULT_PEN_RADIUS; }
 
-    /**
+    */
+/**
      * Sets the pen radius to the given value.
      *
      * @param w The pen radius.
-     */
+     *//*
+
     public static void  setPenRadius (double w) { penRadius = (float)w; }
 
-    /**
+    */
+/**
      * Gets the current pen radius.
      *
      * @return The current pen radius.
-     */
+     *//*
+
     public static float getpenRadius () { return penRadius; }
 
-    /**
+    */
+/**
      * Sets the default font.
-     */
+     *//*
+
     public static void setFont () { font = DEFAULT_FONT; }
 
-    /**
+    */
+/**
      * Sets the font to draw text with.
      *
      * @param f The font to set.
-     */
+     *//*
+
     public static void setFont (Font f) { font = f; }
 
-    /**
+    */
+/**
      * Sets the font to draw text with. The font name and point
      * size are given as parameters.
      *
      * @param name  The name of the font.
      * @param size  The point size of the font.
-     */
+     *//*
+
     public static void setFont (String name, int size) {
         setFont(new Font(name, PLAIN, size));
     }
 
-    /**
+    */
+/**
      * Sets the font to draw text with. The font name, style, and
      * size are given as parameters. The style can be a bitwise
      * combination of StdDraw3D.PLAIN, StdDraw3D.ITALIC, and
@@ -1093,16 +1198,19 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
      * @param name  The name of the font.
      * @param style The style of the font.
      * @param size  The point size of the font.
-     */
+     *//*
+
     public static void setFont (String name, int style, int size) {
         setFont(new Font(name, style, size));
     }
 
-    /**
+    */
+/**
      * Gets the current drawing Font.
      *
      * @return The current Font.
-     */
+     *//*
+
     public static Font getFont () { return font; }
 
     public static void setInfoDisplay (boolean enabled) {
@@ -1112,9 +1220,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         infoDisplay();
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *             View Properties Methods                           *
-     *****************************************************************/
+     *****************************************************************//*
+
 
     public static void fullscreen () {
 
@@ -1133,47 +1243,58 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         frame.setExtendedState(Frame.MAXIMIZED_BOTH);
     }
 
-    /**
+    */
+/**
      * Sets anti-aliasing on or off. Anti-aliasing makes graphics
      * look much smoother, but is very resource heavy. It is good
      * for saving images that look professional. The default is off.
      *
      * @param enabled The state of anti-aliasing.
-     */
+     *//*
+
     public static void setAntiAliasing (boolean enabled) {
         view.setSceneAntialiasingEnable(enabled);
         antiAliasingButton.setSelected(enabled);
         //System.out.println("Anti aliasing enabled: " + enabled);
     }
 
-    /**
+    */
+/**
      * Returns true if anti-aliasing is enabled.
-     */
+     *//*
+
     public static boolean getAntiAliasing () { return antiAliasingButton.isSelected(); }
 
-    /**
+    */
+/**
      * Sets the number of triangular divisons of curved objects.
      * The default is 100 divisons. Decrease this to increase performance.
      *
      * @param N The number of divisions.
-     */
+     *//*
+
     public static void setNumDivisions (int N) { numDivisions = N; }
 
-    /**
+    */
+/**
      * Gets the number of triangular divisons of curved objects.
      *
      * @return The number of divisions.
-     */
+     *//*
+
     public static int  getNumDivisions () { return numDivisions; }
 
-    /**
+    */
+/**
      * Gets the current camera mode.
      *
      * @return The current camera mode.
-     */
+     *//*
+
     public static int  getCameraMode () { return cameraMode; }
 
-    /**
+    */
+/**
      * Sets the current camera mode. <br>
      * -------------------------------------- <br>
      * StdDraw3D.ORBIT_MODE: <br>
@@ -1216,7 +1337,8 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
      * No movement or looking. <br>
      * -------------------------------------- <br>
      * @param mode The camera mode.
-     */
+     *//*
+
     public static void setCameraMode (int mode) {
 
         cameraMode = mode;
@@ -1260,21 +1382,27 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /**
+    */
+/**
      * Sets the default camera mode.
-     */
+     *//*
+
     public static void setCameraMode() { setCameraMode(DEFAULT_CAMERA_MODE); }
 
-    /**
+    */
+/**
      * Sets the center of rotation for the camera mode ORBIT_MODE.
-     */
+     *//*
+
     public static void setOrbitCenter(double x, double y, double z) {
         setOrbitCenter(new Point3d(x, y, z));
     }
 
-    /**
+    */
+/**
      * Sets the center of rotation for the camera mode ORBIT_MODE.
-     */
+     *//*
+
     public static void setOrbitCenter(Vector3D v) {
         setOrbitCenter(new Point3d(v.x, v.y, v.z));
     }
@@ -1288,16 +1416,19 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return new Vector3D(orbitCenter);
     }
 
-    /**
+    */
+/**
      * Sets the projection mode to perspective projection with a
      * default field of view. In this mode, closer objects appear
      * larger, as in real life.
-     */
+     *//*
+
     public static void setPerspectiveProjection () {
         setPerspectiveProjection(DEFAULT_FOV);
     }
 
-    /**
+    */
+/**
      * Sets the projection mode to perspective projection with the
      * given field of view. In this mode, closer objects appear
      * larger, as in real life. A larger field of view means that
@@ -1305,7 +1436,8 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
      * between 0.5 and 3.0.
      *
      * @param fov The field of view to use. Try [0.5-3.0].
-     */
+     *//*
+
     public static void setPerspectiveProjection (double fov) {
 
         view.setProjectionPolicy(View.PERSPECTIVE_PROJECTION);
@@ -1319,13 +1451,15 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         //if (view.getProjectionPolicy() == View.PERSPECTIVE_PROJECTION) return;
     }
 
-    /**
+    */
+/**
      * Sets the projection mode to orthographic projection.
      * In this mode, parallel lines remain parallel after
      * projection, and there is no perspective. It is as
      * looking from infinitely far away with a telescope.
      * AutoCAD programs use this projection mode.
-     */
+     *//*
+
     public static void setParallelProjection () {
 
         if (view.getProjectionPolicy() == View.PARALLEL_PROJECTION) return;
@@ -1343,76 +1477,94 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         view.setBackClipDistance(view.getBackClipDistance() * ratio);
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *              Mouse Listener Methods                           *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /** Is any mouse button pressed? */
+
+    */
+/** Is any mouse button pressed? *//*
+
     public static boolean mousePressed () {
         synchronized (mouseLock) {
             return (mouse1Pressed() || mouse2Pressed() || mouse3Pressed());
         }
     }
 
-    /**
+    */
+/**
      * Is the mouse1 button pressed down?
-     */
+     *//*
+
     public static boolean mouse1Pressed () {
         synchronized (mouseLock) {
             return mouse1;
         }
     }
 
-    /**
+    */
+/**
      * Is the mouse2 button pressed down?
-     */
+     *//*
+
     public static boolean mouse2Pressed () {
         synchronized (mouseLock) {
             return mouse2;
         }
     }
 
-    /**
+    */
+/**
      * Is the mouse3 button pressed down?
-     */
+     *//*
+
     public static boolean mouse3Pressed () {
         synchronized (mouseLock) {
             return mouse3;
         }
     }
 
-    /**
+    */
+/**
      * Where is the mouse?
      *
      * @return The value of the X-coordinate of the mouse.
-     */
+     *//*
+
     public static double mouseX () {
         synchronized (mouseLock) {
             return unscaleX(mouseX);
         }
     }
 
-    /**
+    */
+/**
      * Where is the mouse?
      * @return The value of the Y-coordinate of the mouse.
-     */
+     *//*
+
     public static double mouseY () {
         synchronized (mouseLock) {
             return unscaleY(mouseY);
         }
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void mouseClicked (MouseEvent e) {
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void mouseEntered (MouseEvent e) { }
 
     // FIX THIS
@@ -1421,18 +1573,22 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
     private static int oldY;
     private static boolean fakeEvent = false;
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void mouseExited  (MouseEvent e) {
 
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void mousePressed (MouseEvent e) {
         synchronized (mouseLock) {
             mouseX = e.getX();
@@ -1444,10 +1600,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void mouseReleased (MouseEvent e) {
         synchronized (mouseLock) {
             if (e.getButton() == 1) mouse1 = false;
@@ -1456,10 +1614,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void mouseDragged (MouseEvent e)  {
         synchronized (mouseLock) {
 
@@ -1469,10 +1629,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void mouseMoved (MouseEvent e) {
         synchronized (mouseLock) {
 
@@ -1494,10 +1656,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void mouseWheelMoved (MouseWheelEvent e) {
 
         double notches = e.getWheelRotation();
@@ -1555,33 +1719,40 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         //         }
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *              Keyboard Listener Methods                        *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /**
+
+    */
+/**
      * Has the user typed a key?
      *
      * @return True if the user has typed a key, false otherwise.
-     */
+     *//*
+
     public static boolean hasNextKeyTyped () {
         synchronized (keyLock) {
             return !keysTyped.isEmpty();
         }
     }
 
-    /**
+    */
+/**
      * What is the next key that was typed by the user?
      *
      * @return The next key typed.
-     */
+     *//*
+
     public static char nextKeyTyped () {
         synchronized (keyLock) {
             return keysTyped.removeLast();
         }
     }
 
-    /**
+    */
+/**
      * Is the given key currently pressed down? The keys correnspond
      * to physical keys, not characters. For letters, use the
      * uppercase character to refer to the key. For arrow keys and
@@ -1590,17 +1761,20 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
      *
      * @param key The given key
      * @return True if the given character is pressed.
-     */
+     *//*
+
     public static boolean isKeyPressed (int key) {
         synchronized (keyLock) {
             return keysDown.contains(key);
         }
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void keyTyped (KeyEvent e) {
         synchronized (keyLock) {
 
@@ -1611,10 +1785,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void keyPressed (KeyEvent e)   {
         synchronized (keyLock) {
             keysDown.add(e.getKeyCode());
@@ -1622,10 +1798,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /**
+    */
+/**
      * This method cannot be called directly.
      * @deprecated
-     */
+     *//*
+
     public void keyReleased (KeyEvent e)   {
         synchronized (keyLock) {
             keysDown.remove(e.getKeyCode());
@@ -1633,11 +1811,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /**
+    */
+/**
      * Processes one frame of keyboard events.
      *
      * @param time The amount of time for this frame.
-     */
+     *//*
+
     private static void moveEvents (int time) {
 
         infoDisplay();
@@ -1664,9 +1844,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *             Action Listener Methods                           *
-     *****************************************************************/
+     *****************************************************************//*
+
 
     private static void save3DAction () {
 
@@ -1719,15 +1901,19 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         keysDown.remove(KeyEvent.VK_Q);
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *             Light and Background Methods                      *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /**
+
+    */
+/**
      * Sets the background color to the given color.
      *
      * @param color The color to set the background as.
-     */
+     *//*
+
     public static void setBackground (Color color) {
 
         rootGroup.removeChild(bgGroup);
@@ -1740,11 +1926,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         rootGroup.addChild(bgGroup);
     }
 
-    /**
+    */
+/**
      * Sets the background image to the given filename, scaled to fit the window.
      *
      * @param imageURL The filename for the background image.
-     */
+     *//*
+
     public static void setBackground (String imageURL) {
 
         rootGroup.removeChild(bgGroup);
@@ -1769,12 +1957,14 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         rootGroup.addChild(bgGroup);
     }
 
-    /**
+    */
+/**
      * Sets the background to the given image file. The file gets
      * wrapped around as a spherical skybox.
      *
      * @param imageURL The background image to use.
-     */
+     *//*
+
     public static void setBackgroundSphere (String imageURL) {
 
         Sphere sphere = new Sphere(1.1f, Sphere.GENERATE_NORMALS
@@ -1878,16 +2068,20 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     //*********************************************************************************************
 
-    /**
+    */
+/**
      * Removes all current lighting from the scene.
-     */
+     *//*
+
     public static void clearLight () {
         lightGroup.removeAllChildren();
     }
 
-    /**
+    */
+/**
      * Adds the default lighting to the scene, called automatically at startup.
-     */
+     *//*
+
     public static void setDefaultLight () {
         clearLight();
         directionalLight(-4f, 7f, 12f, LIGHT_GRAY);
@@ -1895,16 +2089,20 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         ambientLight(new Color(0.1f, 0.1f, 0.1f));
     }
 
-    /**
+    */
+/**
      * Adds a directional light of color col which appears to come from (x, y, z).
-     */
+     *//*
+
     public static Light directionalLight (Vector3D dir, Color col) {
         return directionalLight(dir.x, dir.y, dir.z, col);
     }
 
-    /**
+    */
+/**
      * Adds a directional light of color col which shines in the direction vector (x, y, z)
-     */
+     *//*
+
     public static Light directionalLight (double x, double y, double z, Color col) {
 
         DirectionalLight light = new DirectionalLight();
@@ -1926,9 +2124,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return l;
     }
 
-    /**
+    */
+/**
      * Adds ambient light of color col.
-     */
+     *//*
+
     public static Light ambientLight (Color col) {
 
         Color3f lightColor = new Color3f(col);
@@ -1987,23 +2187,29 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return l;
     }
 
-    /**
+    */
+/**
      * Returns a randomly generated color.
-     */
+     *//*
+
     public static Color randomColor () {
         return new Color(new Random().nextInt());
     }
 
-    /**
+    */
+/**
      * Returns a randomly generated color on the rainbow.
-     */
+     *//*
+
     public static Color randomRainbowColor () {
         return Color.getHSBColor((float)Math.random(), 1.0f, 1.0f);
     }
 
-    /**
+    */
+/**
      * Returns a randomly generated normalized Vector3D.
-     */
+     *//*
+
     public static Vector3D randomDirection() {
 
         double theta = Math.random() * Math.PI * 2;
@@ -2011,39 +2217,49 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return new Vector3D(Math.cos(theta) * Math.sin(phi), Math.sin(theta) * Math.sin(phi), Math.cos(phi));
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *              Animation Frame Methods                          *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /**
+
+    */
+/**
      * Clears the entire on the next call of show().
-     */
+     *//*
+
     public static void clear () {
         clear3D();
         clearOverlay();
     }
 
-    /**
+    */
+/**
      * Clears the 3D world on the screen for the next call of show();
-     */
+     *//*
+
     public static void clear3D() {
         clear3D = true;
         offscreenGroup = createBranchGroup();
     }
 
-    /**
+    */
+/**
      * Clears the 2D overlay for the next call of show();
-     */
+     *//*
+
     public static void clearOverlay () {
         clearOverlay = true;
         offscreenImage = createBufferedImage();
     }
 
-    /**
+    */
+/**
      * Pauses for a given amount of milliseconds.
      *
      * @param time The number of milliseconds to pause for.
-     */
+     *//*
+
     public static void pause (int time) {
 
         int t = time;
@@ -2063,27 +2279,33 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         catch (InterruptedException e) { System.out.println("Error sleeping"); }
     }
 
-    /**
+    */
+/**
      * Allows for camera navigation of a scene without redrawing. Useful when
      * drawing a complicated scene once and then exploring without redrawing.
      * Call only as the last line of a program.
-     */
+     *//*
+
     public static void finished () {
 
         show(1000000000);
     }
 
-    /**
+    */
+/**
      * Renders to the screen, but does not pause.
-     */
+     *//*
+
     public static void show () { show(0); }
 
-    /**
+    */
+/**
      * Renders drawn 3D objects to the screen and draws the
      * 2D overlay, then pauses for the given time.
      *
      * @param time The number of milliseconds to pause for.
-     */
+     *//*
+
     public static void show (int time) {
 
         renderOverlay();
@@ -2093,9 +2315,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     public static void showOverlay () { showOverlay(0); }
 
-    /**
+    */
+/**
      * Displays the drawn overlay onto the screen.
-     */
+     *//*
+
     public static void showOverlay (int time) {
 
         renderOverlay();
@@ -2115,9 +2339,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     public static void show3D () { show3D(0); }
 
-    /**
+    */
+/**
      * Renders the drawn 3D objects to the screen, but not the overlay.
-     */
+     *//*
+
     public static void show3D (int time) {
 
         render3D();
@@ -2147,34 +2373,44 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         rootGroup.removeChild(offscreenGroup);
     }
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *                 Primitive 3D Drawing Methods                  *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /**
+
+    */
+/**
      * Draws a sphere at (x, y, z) with radius r.
-     */
+     *//*
+
     public static Shape sphere (double x, double y, double z, double r) {
         return sphere(x, y, z, r, 0, 0, 0, null);
     }
 
-    /**
+    */
+/**
      * Draws a sphere at (x, y, z) with radius r and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape sphere (double x, double y, double z, double r, double xA, double yA, double zA) {
         return sphere(x, y, z, r, xA, yA, zA, null);
     }
 
-    /**
+    */
+/**
      * Draws a sphere at (x, y, z) with radius r and a texture from imageURL.
-     */
+     *//*
+
     public static Shape sphere (double x, double y, double z, double r, String imageURL) {
         return sphere(x, y, z, r, 0, 0, 0, imageURL);
     }
 
-    /**
+    */
+/**
      * Draws a sphere at (x, y, z) with radius r, axial rotations (xA, yA, zA), and a texture from imageURL.
-     */
+     *//*
+
     public static Shape sphere (double x, double y, double z, double r, double xA, double yA, double zA, String imageURL) {
 
         Vector3f dimensions = createVector3f(0, 0, r);
@@ -2183,16 +2419,20 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return primitive(sphere, x, y, z, new Vector3d(xA, yA, zA), null);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe sphere at (x, y, z) with radius r.
-     */
+     *//*
+
     public static Shape wireSphere (double x, double y, double z, double r) {
         return wireSphere(x, y, z, r, 0, 0, 0);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe sphere at (x, y, z) with radius r and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape wireSphere (double x, double y, double z, double r, double xA, double yA, double zA) {
 
         Vector3f dimensions = createVector3f(0, 0, r);
@@ -2203,30 +2443,38 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     //*********************************************************************************************
 
-    /**
+    */
+/**
      * Draws an ellipsoid at (x, y, z) with dimensions (w, h, d).
-     */
+     *//*
+
     public static Shape ellipsoid (double x, double y, double z, double w, double h, double d) {
         return ellipsoid(x, y, z, w, h, d, 0, 0, 0, null);
     }
 
-    /**
+    */
+/**
      * Draws an ellipsoid at (x, y, z) with dimensions (w, h, d) and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape ellipsoid (double x, double y, double z, double w, double h, double d, double xA, double yA, double zA) {
         return ellipsoid(x, y, z, w, h, d, xA, yA, zA, null);
     }
 
-    /**
+    */
+/**
      * Draws an ellipsoid at (x, y, z) with dimensions (w, h, d) and a texture from imageURL.
-     */
+     *//*
+
     public static Shape ellipsoid (double x, double y, double z, double w, double h, double d, String imageURL) {
         return ellipsoid(x, y, z, w, h, d, 0, 0, 0, imageURL);
     }
 
-    /**
+    */
+/**
      * Draws an ellipsoid at (x, y, z) with dimensions (w, h, d), axial rotations (xA, yA, zA), and a texture from imageURL.
-     */
+     *//*
+
     public static Shape ellipsoid (double x, double y, double z, double w, double h, double d, double xA, double yA, double zA, String imageURL) {
 
         Sphere sphere = new Sphere(1, PRIMFLAGS, numDivisions);
@@ -2234,16 +2482,20 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return primitive(sphere, x, y, z, new Vector3d(xA, yA, zA), new Vector3d(w, h, d));
     }
 
-    /**
+    */
+/**
      * Draws a wireframe ellipsoid at (x, y, z) with dimensions (w, h, d).
-     */
+     *//*
+
     public static Shape wireEllipsoid (double x, double y, double z, double w, double h, double d) {
         return wireEllipsoid(x, y, z, w, h, d, 0, 0, 0);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe ellipsoid at (x, y, z) with dimensions (w, h, d) and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape wireEllipsoid (double x, double y, double z, double w, double h, double d, double xA, double yA, double zA) {
 
         Sphere sphere = new Sphere(1, PRIMFLAGS, numDivisions);
@@ -2252,45 +2504,57 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
     }
 
     //*********************************************************************************************
-    /**
+    */
+/**
      * Draws a cube at (x, y, z) with radius r.
-     */
+     *//*
+
     public static Shape cube (double x, double y, double z, double r) {
         return cube(x, y, z, r, 0, 0, 0, null);
     }
 
-    /**
+    */
+/**
      * Draws a cube at (x, y, z) with radius r and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape cube (double x, double y, double z, double r, double xA, double yA, double zA) {
         return cube(x, y, z, r, xA, yA, zA, null);
     }
 
-    /**
+    */
+/**
      * Draws a cube at (x, y, z) with radius r and a texture from imageURL.
-     */
+     *//*
+
     public static Shape cube (double x, double y, double z, double r, String imageURL) {
         return cube(x, y, z, r, 0, 0, 0, imageURL);
     }
 
-    /**
+    */
+/**
      * Draws a cube at (x, y, z) with radius r, axial rotations (xA, yA, zA), and a texture from imageURL.
-     */
+     *//*
+
     public static Shape cube (double x, double y, double z, double r, double xA, double yA, double zA, String imageURL) {
         return box(x, y, z, r, r, r, xA, yA, zA, imageURL);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe cube at (x, y, z) with radius r and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape wireCube (double x, double y, double z, double r, double xA, double yA, double zA) {
 
         return wireBox(x, y, z, r, r, r, 0, 0, 0);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe cube at (x, y, z) with radius r.
-     */
+     *//*
+
     public static Shape wireCube (double x, double y, double z, double r) {
 
         double[] xC = new double[]
@@ -2305,30 +2569,38 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     //*********************************************************************************************
 
-    /**
+    */
+/**
      * Draws a box at (x, y, z) with dimensions (w, h, d).
-     */
+     *//*
+
     public static Shape box (double x, double y, double z, double w, double h, double d) {
         return box(x, y, z, w, h, d, 0, 0, 0, null);
     }
 
-    /**
+    */
+/**
      * Draws a box at (x, y, z) with dimensions (w, h, d) and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape box (double x, double y, double z, double w, double h, double d, double xA, double yA, double zA) {
         return box(x, y, z, w, h, d, xA, yA, zA, null);
     }
 
-    /**
+    */
+/**
      * Draws a box at (x, y, z) with dimensions (w, h, d) and a texture from imageURL.
-     */
+     *//*
+
     public static Shape box (double x, double y, double z, double w, double h, double d, String imageURL) {
         return box(x, y, z, w, h, d, 0, 0, 0, imageURL);
     }
 
-    /**
+    */
+/**
      * Draws a box at (x, y, z) with dimensions (w, h, d), axial rotations (xA, yA, zA), and a texture from imageURL.
-     */
+     *//*
+
     public static Shape box (double x, double y, double z, double w, double h, double d, double xA, double yA, double zA, String imageURL) {
 
         Appearance ap = createAppearance(imageURL, true);
@@ -2340,16 +2612,20 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return primitive(box, x, y, z, new Vector3d(xA, yA, zA), null);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe box at (x, y, z) with dimensions (w, h, d).
-     */
+     *//*
+
     public static Shape wireBox (double x, double y, double z, double w, double h, double d) {
         return wireBox(x, y, z, w, h, d, 0, 0, 0);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe box at (x, y, z) with dimensions (w, h, d) and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape wireBox (double x, double y, double z, double w, double h, double d, double xA, double yA, double zA) {
 
         Appearance ap = createAppearance(null, false);
@@ -2363,30 +2639,38 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     //*********************************************************************************************
 
-    /**
+    */
+/**
      * Draws a cylinder at (x, y, z) with radius r and height h.
-     */
+     *//*
+
     public static Shape cylinder (double x, double y, double z, double r, double h) {
         return cylinder(x, y, z, r, h, 0, 0, 0, null);
     }
 
-    /**
+    */
+/**
      * Draws a cylinder at (x, y, z) with radius r, height h, and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape cylinder (double x, double y, double z, double r, double h, double xA, double yA, double zA) {
         return cylinder(x, y, z, r, h, xA, yA, zA, null);
     }
 
-    /**
+    */
+/**
      * Draws a cylinder at (x, y, z) with radius r, height h, and a texture from imageURL.
-     */
+     *//*
+
     public static Shape cylinder (double x, double y, double z, double r, double h, String imageURL) {
         return cylinder(x, y, z, r, h, 0, 0, 0, imageURL);
     }
 
-    /**
+    */
+/**
      * Draws a cylinder at (x, y, z) with radius r, height h, axial rotations (xA, yA, zA), and a texture from imageURL.
-     */
+     *//*
+
     public static Shape cylinder (double x, double y, double z, double r, double h, double xA, double yA, double zA, String imageURL) {
 
         Appearance ap = createAppearance(imageURL, true);
@@ -2395,16 +2679,20 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return primitive(cyl, x, y, z, new Vector3d(xA, yA, zA), null);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe cylinder at (x, y, z) with radius r and height h.
-     */
+     *//*
+
     public static Shape wireCylinder (double x, double y, double z, double r, double h) {
         return wireCylinder(x, y, z, r, h, 0, 0, 0);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe cylinder at (x, y, z) with radius r, height h, and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape wireCylinder (double x, double y, double z, double r, double h, double xA, double yA, double zA) {
 
         Appearance ap = createAppearance(null, false);
@@ -2415,30 +2703,38 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     //*********************************************************************************************
 
-    /**
+    */
+/**
      * Draws a cone at (x, y, z) with radius r and height h.
-     */
+     *//*
+
     public static Shape cone (double x, double y, double z, double r, double h) {
         return cone(x, y, z, r, h, 0, 0, 0, null);
     }
 
-    /**
+    */
+/**
      * Draws a cone at (x, y, z) with radius r, height h, and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape cone (double x, double y, double z, double r, double h, double xA, double yA, double zA) {
         return cone(x, y, z, r, h, xA, yA, zA, null);
     }
 
-    /**
+    */
+/**
      * Draws a cone at (x, y, z) with radius r, height h, and a texture from imageURL.
-     */
+     *//*
+
     public static Shape cone (double x, double y, double z, double r, double h, String imageURL) {
         return cone(x, y, z, r, h, 0, 0, 0, imageURL);
     }
 
-    /**
+    */
+/**
      * Draws a cone at (x, y, z) with radius r, height h, axial rotations (xA, yA, zA), and a texture from imageURL.
-     */
+     *//*
+
     public static Shape cone (double x, double y, double z, double r, double h, double xA, double yA, double zA, String imageURL) {
 
         Appearance ap = createAppearance(imageURL, true);
@@ -2447,16 +2743,20 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return primitive(cone, x, y, z, new Vector3d(xA, yA, zA), null);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe cone at (x, y, z) with radius r and height h.
-     */
+     *//*
+
     public static Shape wireCone (double x, double y, double z, double r, double h) {
         return wireCone(x, y, z, r, h, 0, 0, 0);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe cone at (x, y, z) with radius r, height h, and axial rotations (xA, yA, zA).
-     */
+     *//*
+
     public static Shape wireCone (double x, double y, double z, double r, double h, double xA, double yA, double zA) {
 
         Appearance ap = createAppearance(null, false);
@@ -2467,9 +2767,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     //*********************************************************************************************
 
-    /**
+    */
+/**
      * Draws a Java 3D Primitive object at (x, y, z) with axial rotations (xA, yA, zA).
-     */
+     *//*
+
     private static Shape primitive (Primitive shape, double x, double y, double z, Vector3d angles, Vector3d scales) {
 
         shape.setCapability(Primitive.ENABLE_APPEARANCE_MODIFY);
@@ -2501,23 +2803,29 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return new Shape(bg, tgShape);
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *             Non-Primitive Drawing Methods                     *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /**
+
+    */
+/**
      * Draws a single point at (x, y, z).
-     */
+     *//*
+
     public static Shape point (double x, double y, double z) {
 
         return points(new double[] {x}, new double[] {y}, new double[] {z});
     }
 
-    /**
+    */
+/**
      * Draws a set of points at the given coordinates. For example,
      * the first point is at (x[0], y[0], z[0]).
      * Much more efficient than drawing individual points.
-     */
+     *//*
+
     public static Shape points (double[] x, double[] y, double[] z) {
 
         Point3f[] coords = constructPoint3f(x, y, z);
@@ -2530,11 +2838,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return shape(shape);
     }
 
-    /**
+    */
+/**
      * Draws a set of points at the given coordinates with the given colors.
      * For example, the first point is at (x[0], y[0], z[0]) with color colors[0].
      * Much more efficient than drawing individual points.
-     */
+     *//*
+
     public static Shape points (double[] x, double[] y, double[] z, Color[] colors) {
 
         Point3f[] coords = constructPoint3f(x, y, z);
@@ -2552,19 +2862,23 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     //*********************************************************************************************
 
-    /**
+    */
+/**
      * Draws a single line from (x1, y1, z1) to (x2, y2, z2).
-     */
+     *//*
+
     public static Shape line (double x1, double y1, double z1, double x2, double y2, double z2) {
 
         return lines(new double[] {x1, x2}, new double[] {y1, y2}, new double[] {z1, z2});
     }
 
-    /**
+    */
+/**
      * Draws a set of connected lines. For example, the first line is from (x[0], y[0], z[0]) to
      * (x[1], y[1], z[1]), and the second line is from (x[1], y[1], z[1]) to (x[2], y[2], z[2]).
      * Much more efficient than drawing individual lines.
-     */
+     *//*
+
     public static Shape lines (double[] x, double[] y, double[] z) {
 
         Point3f[] coords = constructPoint3f(x, y, z);
@@ -2578,12 +2892,14 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return shape(shape);
     }
 
-    /**
+    */
+/**
      * Draws a set of connected lines. For example, the first line is from (x[0], y[0], z[0]) to
      * (x[1], y[1], z[1]), and the second line is from (x[1], y[1], z[1]) to (x[2], y[2], z[2]).
      * Much more efficient than drawing individual lines. Vertex colors are specified by the given
      * array, and line colors are blends of its two vertex colors.
-     */
+     *//*
+
     public static Shape lines (double[] x, double[] y, double[] z, Color[] colors) {
 
         Point3f[] coords = constructPoint3f(x, y, z);
@@ -2600,9 +2916,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return customShape(shape);
     }
 
-    /**
+    */
+/**
      * Draws a cylindrical tube of radius r from vertex (x1, y1, z1) to vertex (x2, y2, z2).
-     */
+     *//*
+
     public static Shape tube (double x1, double y1, double z1, double x2, double y2, double z2, double r) {
 
         Vector3D mid = new Vector3D(x1 + x2, y1 + y2, z1 + z2).times(0.5);
@@ -2618,9 +2936,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return combine(s);
     }
 
-    /**
+    */
+/**
      * Draws a series of cylindrical tubes of radius r, with vertices (x, y, z).
-     */
+     *//*
+
     public static Shape tubes (double[] x, double[] y, double[] z, double r) {
 
         StdDraw3D.Shape[] shapes = new StdDraw3D.Shape[(x.length-1) * 2];
@@ -2633,10 +2953,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return combine(shapes);
     }
 
-    /**
+    */
+/**
      * Draws a series of cylindrical tubes of radius r, with vertices (x, y, z) and the given colors.
      * No more efficient than drawing individual tubes.
-     */
+     *//*
+
     public static Shape tubes (double[] x, double[] y, double[] z, double r, Color[] colors) {
 
         StdDraw3D.Shape[] shapes = new StdDraw3D.Shape[(x.length-1) * 2];
@@ -2652,26 +2974,32 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     //*********************************************************************************************
 
-    /**
+    */
+/**
      * Draws a filled polygon with the given vertices. The vertices should be planar for a
      * proper 2D polygon to be drawn.
-     */
+     *//*
+
     public static Shape polygon (double[] x, double[] y, double[] z) {
         return polygon(x, y, z, true);
     }
 
-    /**
+    */
+/**
      * Draws the triangulated outline of a polygon with the given vertices.
-     */
+     *//*
+
     public static Shape wirePolygon (double[] x, double[] y, double[] z) {
         return polygon(x, y, z, false);
     }
 
-    /**
+    */
+/**
      * Draws a polygon with the given vertices, which is filled or outlined based on the argument.
      *
      * @param filled Is the polygon filled?
-     */
+     *//*
+
     private static Shape polygon (double[] x, double[] y, double[] z, boolean filled) {
 
         Point3f[] coords = constructPoint3f(x, y, z);
@@ -2692,12 +3020,14 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     //*********************************************************************************************
 
-    /**
+    */
+/**
      * Draws triangles which are defined by x1=points[i][0], y1=points[i][1], z1=points[i][2], x2=points[i][3], etc.
      * All of the points will be the width and color specified by the setPenColor and setPenWidth methods.
      * @param points an array of the points to be connected.  The first dimension is
      * unspecified, but the second dimension should be 9 (the 3-space coordinates of each vertex)
-     */
+     *//*
+
     public static Shape triangles (double[][] points) {
         return triangles(points, true);
     }
@@ -2732,20 +3062,24 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
             return wireShape(shape);
     }
 
-    /**
+    */
+/**
      * Draws a set of triangles, each with the specified color. There should be one
      * color for each triangle. This is much more efficient than drawing individual
      * triangles.
-     */
+     *//*
+
     public static Shape triangles (double[][] points, Color[] colors) {
         return triangles(points, colors, true);
     }
 
-    /**
+    */
+/**
      * Draws a set of wireframetriangles, each with the specified color. There should be one
      * color for each triangle. This is much more efficient than drawing individual
      * triangles.
-     */
+     *//*
+
     public static Shape wireTriangles (double[][] points, Color[] colors) {
         return triangles(points, colors, false);
     }
@@ -2783,18 +3117,22 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
     //*********************************************************************************************
 
-    /**
+    */
+/**
      * Draws a 3D text object at (x, y, z). Uses the pen font, color, and transparency.
-     */
+     *//*
+
     public static Shape text3D (double x, double y, double z, String text) {
 
         return text3D(x, y, z, text, 0, 0, 0);
     }
 
-    /**
+    */
+/**
      * Draws a 3D text object at (x, y, z) with Euler rotation angles (xA, yA, zA).
      * Uses the pen font, color, and transparency.
-     */
+     *//*
+
     public static Shape text3D (double x, double y, double z, String text, double xA, double yA, double zA) {
 
         Line2D.Double line = new Line2D.Double(0, 0, TEXT3D_DEPTH, 0);
@@ -2813,9 +3151,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
     }
 
     //*********************************************************************************************
-    /**
+    */
+/**
      * Constructs a Point3f array from the given coordinate arrays.
-     */
+     *//*
+
     private static Point3f[] constructPoint3f (double[] x, double[] y, double[] z) {
 
         int size = x.length;
@@ -2827,9 +3167,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return coords;
     }
 
-    /**
+    */
+/**
      * Draws a .ply file from a filename or website name.
-     */
+     *//*
+
     private static Shape drawPLY (String filename, boolean colored) {
 
         Scanner scanner = createScanner(filename);
@@ -3000,20 +3342,24 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
             throw new RuntimeException("Format not supported!");
     }
 
-    /**
+    */
+/**
      * Draws a Java 3D Shape3D object and fills it in.
      *
      * @param shape The Shape3D object to be drawn.
-     */
+     *//*
+
     private static Shape shape (Shape3D shape) {
         return shape(shape, true, null, false);
     }
 
-    /**
+    */
+/**
      * Draws a wireframe Java 3D Shape3D object and fills it in.
      *
      * @param shape The Shape3D object to be drawn.
-     */
+     *//*
+
     private static Shape wireShape (Shape3D shape) {
         return shape(shape, false, null, false);
     }
@@ -3026,11 +3372,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return shape(shape, false, null, true);
     }
 
-    /**
+    */
+/**
      * Draws a Java3D Shape3D object with the given properties.
      *
      * @param polygonFill Polygon fill properties, specified by Java 3D.
-     */
+     *//*
+
     private static Shape shape (Shape3D shape, boolean fill, Transform3D transform, boolean custom) {
 
         Appearance ap;
@@ -3052,36 +3400,46 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return new Shape(bg, transGroup);
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *                 2D Overlay Drawing Methods                    *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /**
+
+    */
+/**
      * Draws one pixel at (x, y).
-     */
+     *//*
+
     public static void overlayPixel (double x, double y) {
         getGraphics2D(offscreenImage).fillRect((int) Math.round(scaleX(x)), (int) Math.round(scaleY(y)), 1, 1);
     }
 
-    /**
+    */
+/**
      * Draws a point at (x, y).
-     */
+     *//*
+
     public static void overlayPoint (double x, double y) {
         float r = penRadius;
         if (r <= 1) overlayPixel(x, y);
         else getGraphics2D(offscreenImage).fill(new Ellipse2D.Double(scaleX(x) - r/2, scaleY(y) - r/2, r, r));
     }
 
-    /**
+    */
+/**
      * Draws a line from (x0, y0) to (x1, y1).
-     */
+     *//*
+
     public static void overlayLine (double x0, double y0, double x1, double y1) {
         getGraphics2D(offscreenImage).draw(new Line2D.Double(scaleX(x0), scaleY(y0), scaleX(x1), scaleY(y1)));
     }
 
-    /**
+    */
+/**
      * Draws a circle of radius r, centered on (x, y).
-     */
+     *//*
+
     public static void overlayCircle (double x, double y, double r) {
 
         if (r < 0) throw new RuntimeException("circle radius can't be negative");
@@ -3093,9 +3451,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         else getGraphics2D(offscreenImage).draw(new Ellipse2D.Double(xs - ws/2, ys - hs/2, ws, hs));
     }
 
-    /**
+    */
+/**
      * Draws a filled circle of radius r, centered on (x, y).
-     */
+     *//*
+
     public static void overlayFilledCircle (double x, double y, double r) {
 
         if (r < 0) throw new RuntimeException("circle radius can't be negative");
@@ -3107,9 +3467,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         else getGraphics2D(offscreenImage).fill(new Ellipse2D.Double(xs - ws/2, ys - hs/2, ws, hs));
     }
 
-    /**
+    */
+/**
      * Draws an ellipse with given semimajor and semiminor axes, centered on (x, y).
-     */
+     *//*
+
     public static void overlayEllipse (double x, double y, double semiMajorAxis, double semiMinorAxis) {
         if (semiMajorAxis < 0) throw new RuntimeException("ellipse semimajor axis can't be negative");
         if (semiMinorAxis < 0) throw new RuntimeException("ellipse semiminor axis can't be negative");
@@ -3121,9 +3483,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         else getGraphics2D(offscreenImage).draw(new Ellipse2D.Double(xs - ws/2, ys - hs/2, ws, hs));
     }
 
-    /**
+    */
+/**
      * Draws a filled ellipse with given semimajor and semiminor axes, centered on (x, y).
-     */
+     *//*
+
     public static void overlayFilledEllipse (double x, double y, double semiMajorAxis, double semiMinorAxis) {
         if (semiMajorAxis < 0) throw new RuntimeException("ellipse semimajor axis can't be negative");
         if (semiMinorAxis < 0) throw new RuntimeException("ellipse semiminor axis can't be negative");
@@ -3135,9 +3499,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         else getGraphics2D(offscreenImage).fill(new Ellipse2D.Double(xs - ws/2, ys - hs/2, ws, hs));
     }
 
-    /**
+    */
+/**
      * Draws an arc of radius r, centered on (x, y), from angle1 to angle2 (in degrees).
-     */
+     *//*
+
     public static void overlayArc (double x, double y, double r, double angle1, double angle2) {
         if (r < 0) throw new RuntimeException("arc radius can't be negative");
         while (angle2 < angle1) angle2 += 360;
@@ -3149,9 +3515,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         else getGraphics2D(offscreenImage).draw(new Arc2D.Double(xs - ws/2, ys - hs/2, ws, hs, angle1, angle2 - angle1, Arc2D.OPEN));
     }
 
-    /**
+    */
+/**
      * Draws a square of side length 2r, centered on (x, y).
-     */
+     *//*
+
     public static void overlaySquare (double x, double y, double r) {
         if (r < 0) throw new RuntimeException("square side length can't be negative");
         double xs = scaleX(x);
@@ -3162,9 +3530,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         else getGraphics2D(offscreenImage).draw(new Rectangle2D.Double(xs - ws/2, ys - hs/2, ws, hs));
     }
 
-    /**
+    */
+/**
      * Draws a filled square of side length 2r, centered on (x, y).
-     */
+     *//*
+
     public static void overlayFilledSquare (double x, double y, double r) {
         if (r < 0) throw new RuntimeException("square side length can't be negative");
         double xs = scaleX(x);
@@ -3175,9 +3545,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         else getGraphics2D(offscreenImage).fill(new Rectangle2D.Double(xs - ws/2, ys - hs/2, ws, hs));
     }
 
-    /**
+    */
+/**
      * Draws a rectangle of given half width and half height, centered on (x, y).
-     */
+     *//*
+
     public static void overlayRectangle (double x, double y, double halfWidth, double halfHeight) {
         if (halfWidth  < 0) throw new RuntimeException("half width can't be negative");
         if (halfHeight < 0) throw new RuntimeException("half height can't be negative");
@@ -3189,9 +3561,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         else getGraphics2D(offscreenImage).draw(new Rectangle2D.Double(xs - ws/2, ys - hs/2, ws, hs));
     }
 
-    /**
+    */
+/**
      * Draws a filled rectangle of given half width and half height, centered on (x, y).
-     */
+     *//*
+
     public static void overlayFilledRectangle (double x, double y, double halfWidth, double halfHeight) {
         if (halfWidth  < 0) throw new RuntimeException("half width can't be negative");
         if (halfHeight < 0) throw new RuntimeException("half height can't be negative");
@@ -3203,9 +3577,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         else getGraphics2D(offscreenImage).fill(new Rectangle2D.Double(xs - ws/2, ys - hs/2, ws, hs));
     }
 
-    /**
+    */
+/**
      * Draws a polygon with the given (x[i], y[i]) coordinates.
-     */
+     *//*
+
     public static void overlayPolygon (double[] x, double[] y) {
         int N = x.length;
         GeneralPath path = new GeneralPath();
@@ -3216,9 +3592,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         getGraphics2D(offscreenImage).draw(path);
     }
 
-    /**
+    */
+/**
      * Draws a filled polygon with the given (x[i], y[i]) coordinates.
-     */
+     *//*
+
     public static void overlayFilledPolygon (double[] x, double[] y) {
         int N = x.length;
         GeneralPath path = new GeneralPath();
@@ -3229,10 +3607,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         getGraphics2D(offscreenImage).fill(path);
     }
 
-    /**
+    */
+/**
      * Draws the given text as stationary on the window at (x, y).
      * This is useful for titles and HUD-style text.
-     */
+     *//*
+
     public static void overlayText (double x, double y, String text) {
         Graphics2D graphics = getGraphics2D(offscreenImage);
         FontMetrics metrics = graphics.getFontMetrics();
@@ -3243,10 +3623,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         graphics.drawString(text, (float) (xs - ws/2.0), (float) (ys + hs));
     }
 
-    /**
+    */
+/**
      * Writes the given text string in the current font, centered on (x, y) and
      * rotated by the specified number of degrees.
-     */
+     *//*
+
     public static void overlayText (double x, double y, String text, double degrees) {
         Graphics2D graphics = getGraphics2D(offscreenImage);
         FontMetrics metrics = graphics.getFontMetrics();
@@ -3259,9 +3641,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         graphics.rotate(Math.toRadians(+degrees), xs, ys);
     }
 
-    /**
+    */
+/**
      * Write the given text string in the current font, left-aligned at (x, y).
-     */
+     *//*
+
     public static void overlayTextLeft (double x, double y, String text) {
         Graphics2D graphics = getGraphics2D(offscreenImage);
         FontMetrics metrics = graphics.getFontMetrics();
@@ -3272,9 +3656,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         graphics.drawString(text, (float) (xs), (float) (ys + hs));
     }
 
-    /**
+    */
+/**
      * Write the given text string in the current font, right-aligned at (x, y).
-     */
+     *//*
+
     public static void overlayTextRight (double x, double y, String text) {
         Graphics2D graphics = getGraphics2D(offscreenImage);
         FontMetrics metrics = graphics.getFontMetrics();
@@ -3285,9 +3671,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         graphics.drawString(text, (float) (xs - ws), (float) (ys + hs));
     }
 
-    /**
+    */
+/**
      * Draws a picture (gif, jpg, or png) centered on (x, y).
-     */
+     *//*
+
     public static void overlayPicture (double x, double y, String s) {
         Image image = getImage(s);
         double xs = scaleX(x);
@@ -3298,10 +3686,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         getGraphics2D(offscreenImage).drawImage(image, (int) Math.round(xs - ws/2.0), (int) Math.round(ys - hs/2.0), null);
     }
 
-    /**
+    */
+/**
      * Draws a picture (gif, jpg, or png) centered on (x, y),
      * rotated given number of degrees.
-     */
+     *//*
+
     public static void overlayPicture (double x, double y, String s, double degrees) {
         Image image = getImage(s);
         double xs = scaleX(x);
@@ -3316,9 +3706,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         graphics.rotate(Math.toRadians(+degrees), xs, ys);
     }
 
-    /**
+    */
+/**
      * Draw picture (gif, jpg, or png) centered on (x, y), rescaled to w-by-h.
-     */
+     *//*
+
     public static void overlayPicture (double x, double y, String s, double w, double h) {
         Image image = getImage(s);
         double xs = scaleX(x);
@@ -3337,10 +3729,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /**
+    */
+/**
      * Draw picture (gif, jpg, or png) centered on (x, y), rotated
      * given number of degrees, rescaled to w-by-h.
-     */
+     *//*
+
     public static void overlayPicture (double x, double y, String s, double w, double h, double degrees) {
         Image image = getImage(s);
         double xs = scaleX(x);
@@ -3359,9 +3753,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         graphics.rotate(Math.toRadians(+degrees), xs, ys);
     }
 
-    /**
+    */
+/**
      * Gets an image from the given filename.
-     */
+     *//*
+
     private static Image getImage (String filename) {
 
         // to read from file
@@ -3372,7 +3768,9 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
             try {
                 URL url = new URL(filename);
                 icon = new ImageIcon(url);
-            } catch (Exception e) { /* not a url */ }
+            } catch (Exception e) { */
+/* not a url *//*
+ }
         }
 
         // in case file is inside a .jar
@@ -3454,15 +3852,19 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         infoImage = bi;
     }
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *                    Saving/Loading Methods                  *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /**
+
+    */
+/**
      * Saves to file - suffix must be png, jpg, or gif. gif??
      *
      * @param filename The name of the file with one of the required suffixes.
-     */
+     *//*
+
     public static void save (String filename) {
 
         //canvas.setVisible(false);
@@ -3548,13 +3950,17 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         //catch (NamedObjectException noe)         { noe.printStackTrace(); }
     }
 
-    /* ***************************************************************
+    */
+/* ***************************************************************
      *                    Shape Methods                              *
-     *****************************************************************/
+     *****************************************************************//*
 
-    /**
+
+    */
+/**
      * Combines any number of shapes into one shape and returns it.
-     */
+     *//*
+
     public static Shape combine (Shape... shapes) {
 
         BranchGroup    combinedGroup = createBranchGroup();
@@ -3576,10 +3982,12 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         return new Shape(combinedGroup, combinedTransform);
     }
 
-    /**
+    */
+/**
      * Returns an identical copy of a Shape that can be controlled independently.
      * Much more efficient than redrawing a specific shape or model.
-     */
+     *//*
+
     public static Shape copy (Shape shape) {
         TransformGroup tg = shape.tg;
         BranchGroup bg = shape.bg;
@@ -3837,7 +4245,9 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
             yA = Math.toDegrees(yA);
             zA = Math.toDegrees(zA);
 
-            /* return only positive angles in [0,360] */
+            */
+/* return only positive angles in [0,360] *//*
+
             if (xA < 0) xA += 360;
             if (yA < 0) yA += 360;
             if (zA < 0) zA += 360;
@@ -4126,29 +4536,39 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
     }
 
-    /******************************************************************************
+    */
+/******************************************************************************
      * An immutable three-dimensional vector class with useful vector operations.
      *
      * @author Hayk Martirosyan <hmartiro@princeton.edu>
      * @since 2011.0310
      * @version 1.0
-     ****************************************************************************/
+     ****************************************************************************//*
+
     public static class Vector3D {
 
-        /** X-coordinate - immutable but directly accessible. */
+        */
+/** X-coordinate - immutable but directly accessible. *//*
+
         public final double x;
 
-        /** Y-coordinate - immutable but directly accessible. */
+        */
+/** Y-coordinate - immutable but directly accessible. *//*
+
         public final double y;
 
-        /** Z-coordinate - immutable but directly accessible. */
+        */
+/** Z-coordinate - immutable but directly accessible. *//*
+
         public final double z;
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Initializes to zero vector.
-         */
+         *//*
+
         public Vector3D () {
 
             this.x = 0;
@@ -4158,13 +4578,15 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Initializes to the given coordinates.
          *
          * @param x X-coordinate
          * @param y Y-coordinate
          * @param z Z-coordinate
-         */
+         *//*
+
         public Vector3D (double x, double y, double z) {
 
             this.x = x;
@@ -4172,11 +4594,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
             this.z = z;
         }
 
-        /**
+        */
+/**
          * Initializes to the given coordinates.
          *
          * @param c Array length 3 of coordinates (x, y, z,).
-         */
+         *//*
+
         //--------------------------------------------------------------------------
 
         public Vector3D (double[] c) {
@@ -4236,12 +4660,14 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
 
         //--------------------------------------------------------------------------
-        /**
+        */
+/**
          * Returns the dot product of this and that.
          *
          * @param that Vector to dot with
          * @return This dot that
-         */
+         *//*
+
         public double dot (Vector3D that) {
 
             return (this.x * that.x + this.y * that.y + this.z * that.z);
@@ -4249,11 +4675,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Returns the magnitude of this vector.
          *
          * @return Magnitude of vector
-         */
+         *//*
+
         public double mag () {
 
             return Math.sqrt(this.dot(this));
@@ -4261,35 +4689,41 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Returns the smallest angle between this and that vector, in DEGREES.
          *
          * @return Angle between the vectors, in DEGREES
-         */
+         *//*
+
         public double angle (Vector3D that) {
             return Math.toDegrees(Math.acos(this.dot(that)/(this.mag() * that.mag())));
         }
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Returns the Euclidian distance between this and that.
          *
          * @param that Vector to compute distance between
          * @return Distance between this and that
-         */
+         *//*
+
         public double distanceTo (Vector3D that) {
             return this.minus(that).mag();
         }
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Returns the sum of this and that vector.
          *
          * @param that Vector to compute sum with
          * @return This plus that
-         */
+         *//*
+
         public Vector3D plus (Vector3D that) {
 
             double cx = this.x + that.x;
@@ -4307,12 +4741,14 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
         }
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Returns the difference of this and that vector.
          *
          * @param that Vector to compute difference with
          * @return This minus that
-         */
+         *//*
+
         public Vector3D minus (Vector3D that) {
 
             double cx = this.x - that.x;
@@ -4331,12 +4767,14 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Returns the product of this vector and the scalar a.
          *
          * @param a Scalar to multiply by
          * @return (this.x * a, this.y * a, this.z * a)
-         */
+         *//*
+
         public Vector3D times (double a) {
 
             double cx = this.x * a;
@@ -4348,14 +4786,16 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Returns the result (this.x * a, this.y * b, this.z * c).
          *
          * @param a Scalar to multiply x by
          * @param b Scalar to multiply y by
          * @param c Scalar to multiply z by
          * @return (this.x * a, this.y * b, this.z * c)
-         */
+         *//*
+
         public Vector3D times (double a, double b, double c) {
 
             double vx = this.x * a;
@@ -4367,11 +4807,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Returns the unit vector in the direction of this vector.
          *
          * @return Unit vector with direction of this vector
-         */
+         *//*
+
         public Vector3D direction () {
 
             if (this.mag() == 0.0) throw new RuntimeException("Zero-vector has no direction");
@@ -4380,12 +4822,14 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Returns the projection of this onto the given line.
          *
          * @param line Direction to project this vector onto
          * @return This projected onto line
-         */
+         *//*
+
         public Vector3D proj (Vector3D line) {
 
             Vector3D normal = line.direction();
@@ -4395,11 +4839,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Returns the cross product of this vector with that vector.
          *
          * @return This cross that
-         */
+         *//*
+
         public Vector3D cross (Vector3D that) {
 
             Vector3D a = this;
@@ -4410,12 +4856,14 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Reflects this vector across the direction given by line.
          *
          * @param line Direction to reflect this vector over
          * @return This reflected over line
-         */
+         *//*
+
         public Vector3D reflect (Vector3D line) {
 
             return this.proj(line).times(2).minus(this);
@@ -4423,11 +4871,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Returns a string representation of this vector.
          *
          * @return "( this.x, this.y, this.z)"
-         */
+         *//*
+
         public String toString() {
 
             DecimalFormat df = new DecimalFormat("0.000000");
@@ -4436,9 +4886,11 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Draws this vector as a point from the origin to System.out.
-         */
+         *//*
+
         public void draw () {
 
             StdDraw3D.sphere(this.x, this.y, this.z, 0.01);
@@ -4446,11 +4898,13 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
 
         //--------------------------------------------------------------------------
 
-        /**
+        */
+/**
          * Draws a line representation of this vector, from the given origin.
          *
          * @param origin Origin point to draw from
-         */
+         *//*
+
         public void drawLine (Vector3D origin) {
 
             Vector3D end = this.plus(origin);
@@ -4498,3 +4952,4 @@ KeyListener, ActionListener, ChangeListener, ComponentListener, WindowFocusListe
       }
   }
 }
+*/

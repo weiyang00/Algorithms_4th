@@ -1,6 +1,6 @@
 package ex_1_basics.ex_1_BasicProgrammingModel;
 
-public class ex_24_GCD {
+public class Ex_24_GCD {
 
     //假设我们的最大公约数表示为f(a,b),并且有a>=b>0,
     //欧几里德定理，f(a,b)=f(b,a%b),

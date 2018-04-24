@@ -1,7 +1,7 @@
 package ex_1_basics.ex_1_BasicProgrammingModel;
 
 
-public class ex_19_Fibonacci {
+public class Ex_19_Fibonacci {
 
     public static  long F(int N) {
         if(N == 0) {
