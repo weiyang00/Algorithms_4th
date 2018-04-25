@@ -11,7 +11,7 @@ import java.util.List;
 public class Ex_28_Remove {
 
     public static void main(String[] args) {
-        int[] whitelist = In.readInts("../txt/largeW.txt");
+        int[] whitelist = In.readInts("../data/largeW.txt");
 
         System.out.println("加载文件完成， list.length === " + whitelist.length);
         Arrays.sort(whitelist);

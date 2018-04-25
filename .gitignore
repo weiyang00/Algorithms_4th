@@ -5,4 +5,4 @@ classes
 /src/main/webapp/*
 *.patch
 out
-txt
+data

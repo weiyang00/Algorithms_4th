@@ -9,7 +9,7 @@ public class Ex_29_Equivalent {
 
 
     public static void main(String[] args) {
-        int[] whitelist = In.readInts("../txt/largeW.txt");
+        int[] whitelist = In.readInts("../data/largeW.txt");
 
         System.out.println("加载文件完成， list.length === " + whitelist.length);
         Arrays.sort(whitelist);
@@ -22,13 +22,12 @@ public class Ex_29_Equivalent {
             System.out.println("largeW中小于 " +key+ " 的值的数量为 === " + r);
             int c = count(key, testArray);
             System.out.println("largeW中等于 " +key+ " 的值的数量为 === " + c);
-
         }
 
-
-
-
     }
+
+
+
 
     public static int rank(int key, int[] a) {
         //同样使用二分法查找key的位置
