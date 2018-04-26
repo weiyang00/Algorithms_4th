@@ -6,7 +6,7 @@ import StdLib.StdOut;
 
 import java.util.Arrays;
 
-public class Ex_38_ViolenceSearch {
+public class Ex_38_BruteForceSearch {
 
     public static void main(String[] args) {
         int[] whitelist = In.readInts("../data/largeT.txt");
@@ -33,6 +33,8 @@ public class Ex_38_ViolenceSearch {
             if (a[i] == key) return i;
         return -1;
     }
+
+    //此方法并不能比较出二分法和暴力查找的区别
 
 
 }

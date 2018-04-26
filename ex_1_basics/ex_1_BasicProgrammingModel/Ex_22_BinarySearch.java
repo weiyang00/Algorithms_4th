@@ -55,6 +55,7 @@ public class Ex_22_BinarySearch {
     }
 
 
+    //递归实现
     public static int rank(int key, int[] a) {
         account = 0;
         return rank(key, a, 0, a.length - 1);
@@ -62,9 +63,7 @@ public class Ex_22_BinarySearch {
 
     public static int rank(int key, int[] a, int lo, int hi) {
     //如果key在a[]中， 它的索引不会小于lo且大于hi
-
         ++account;
-
 
         if(lo > hi)
             return  -1;
