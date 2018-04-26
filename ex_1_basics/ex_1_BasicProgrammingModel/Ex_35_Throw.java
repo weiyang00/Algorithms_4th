@@ -26,6 +26,8 @@ public class Ex_35_Throw {
             doubles2[k] = getNumberInN(doubles2[k], 3);
             k++;
         }
+
+        //比对试验结果和理论结果，如果一致（小数点后三位相同），则试验结束
         if (compareArray(doubles1,doubles2)) {
             return;
         }
