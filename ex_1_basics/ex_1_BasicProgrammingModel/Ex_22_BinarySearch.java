@@ -44,14 +44,19 @@ public class Ex_22_BinarySearch {
         // read key; print if not in whitelist
         while (!StdIn.isEmpty()) {
             int key = StdIn.readInt();
+            long timeStart = System.currentTimeMillis();
             int res = rank(key, whitelist);
+            long timeEnd = System.currentTimeMillis();
+            System.out.println("本次搜索耗时"+ (timeEnd -timeStart));
             if (res == -1)
-                StdOut.println(key);
+                StdOut.println(key+ " is not in the array");
+            else System.out.println(key + " in " + res);
         }
     }
 
 
     public static int rank(int key, int[] a) {
+        account = 0;
         return rank(key, a, 0, a.length - 1);
     }
 
@@ -59,7 +64,7 @@ public class Ex_22_BinarySearch {
     //如果key在a[]中， 它的索引不会小于lo且大于hi
 
         ++account;
-        System.out.println("lo === "+ lo+", hi === "+hi+", account === "+account);
+
 
         if(lo > hi)
             return  -1;

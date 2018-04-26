@@ -2,11 +2,13 @@ package ex_1_basics.ex_1_BasicProgrammingModel;
 
 import StdLib.StdRandom;
 
-public class Ex_36_OutOfOrderChecking {
+public class Ex_37_MessedUp {
+
+
 
     public static void main(String[] args) {
 
-        Ex_11_TwoDimensionBooleanArray.printArray(shuffleTest(2, 1));
+        Ex_11_TwoDimensionBooleanArray.printArray(shuffleTest(10, 500));
 
     }
 
@@ -15,8 +17,8 @@ public class Ex_36_OutOfOrderChecking {
     public static void shuffle (double[] a) {
         int N = a.length;
         for (int i = 0; i<N; i++){
-            //将a[i]和a[i..N-1] 中任意一个元素交换
-            int r = i + StdRandom.uniform(N - i);
+            //将a[i]和a[0..N-1] 中任意一个元素交换
+            int r =StdRandom.uniform(N );
             double temp = a[i];
             a[i] = a [r];
             a[r] = temp;
@@ -41,6 +43,8 @@ public class Ex_36_OutOfOrderChecking {
         }
         return b;
     }
+
+
 
 
 
