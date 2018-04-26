@@ -1,4 +1,4 @@
-package ex_1_basics.ex_1_BasicProgrammingModel;
+package ex_1_Fundamentals.ex_1_BasicProgrammingModel;
 
 import StdLib.StdRandom;
 

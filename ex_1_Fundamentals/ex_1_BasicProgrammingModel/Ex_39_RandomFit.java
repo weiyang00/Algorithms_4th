@@ -1,10 +1,8 @@
-package ex_1_basics.ex_1_BasicProgrammingModel;
+package ex_1_Fundamentals.ex_1_BasicProgrammingModel;
 
 import StdLib.StdIn;
-import StdLib.StdOut;
 import StdLib.StdRandom;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Ex_39_RandomFit {
