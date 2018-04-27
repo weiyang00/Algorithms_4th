@@ -55,10 +55,6 @@ public class Ex_PermutationAndCombination {
         if (n <= 1 || m > n)
             return null;
 
-        long nFactorial = nFactorial(n);
-        long mFactorial = nFactorial(m);
-        long nmFactorial = nFactorial(n-m);
-
         int count =(int) ( (nFactorial(n))/(nFactorial(m)*nFactorial(n-m)) );
 
         int[][] newO = new int[count][n];

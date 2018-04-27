@@ -5,7 +5,7 @@ import StdLib.StdIn;
 import StdLib.StdRandom;
 import ex_1_Fundamentals.ex_1_BasicProgrammingModel.Ex_11_TwoDimensionBooleanArray;
 
-public class ex_1_Point2DTest {
+public class Ex_1_Point2DTest {
 
     public static void main(String[] args) {
         while (!StdIn.isEmpty()) {
