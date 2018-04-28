@@ -23,9 +23,12 @@ public class Ex_24_GCD {
     }
 
 
-    public static int oujilide(int a,int b){
+    public static long oujilide(long a,long b){
+        if (a == 0 && b == 0){
+            return 1;
+        }
         if(a<b){
-            int temp;
+            long temp;
             temp=a;
             a=b;
             b=temp;
@@ -33,7 +36,6 @@ public class Ex_24_GCD {
         if(0==b){
             return a;
         }
-        System.out.println("p 的值 === "+ b +"， q的值 ===" + a%b);
         return oujilide(b,a%b);
     }
 
