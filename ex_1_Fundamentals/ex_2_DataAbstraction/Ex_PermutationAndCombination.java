@@ -31,7 +31,6 @@ public class Ex_PermutationAndCombination {
     }
 
 
-
     //全排列递归算法:
 //    现以{1, 2, 3, 4, 5}为例说明如何编写全排列的递归算法。
 
