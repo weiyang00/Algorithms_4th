@@ -98,6 +98,17 @@ public class Stack<Item> implements Iterable<Item> {
         return first.item ;
     }
 
+
+    public static Stack<String> copy(Stack<String> stringStack) {
+        Stack<String> stack1 = new Stack<>();
+        Stack<String> stack2 = new Stack<>();
+        for (String s: stringStack)
+            stack1.push(s);
+        for (String s: stack1)
+            stack2.push(s);
+        return stack2;
+    }
+
     /**
      * Return string representation.
      */
@@ -139,6 +150,7 @@ public class Stack<Item> implements Iterable<Item> {
             if (!item.equals("-")) s.push(item);
             else if (!s.isEmpty()) StdOut.print(s.pop() + " ");
         }
+        for (String s1: s)
         StdOut.println("(" + s.size() + " left on stack)");
     }
 }
