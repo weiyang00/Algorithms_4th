@@ -33,7 +33,7 @@ public class Ex_09_Operation {
                     c.equals("/"))
                     va = String.format("( %s %s %s )", vals.pop(), op, va);
                 if (c.equals("sqrt"))
-                    va = String.format("( %s %s )", op, va);
+                    va = String.format("( %s %s )",  op, va);
 
                 vals.push(va);
             }
