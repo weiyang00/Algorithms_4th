@@ -3,23 +3,28 @@ package ex_1_Fundamentals.ex_3_BagQueueStack;
 public class Ex_31_DoubleLinkedTest {
 
     static DoubleNode first;
+    static DoubleNode last;
     static int N = 0;
 
 
     public static void addInFirst(DoubleNode n){
-        if (first.next == null)
+        if (first.next == null && first.prior == null)
+            first = last = n;
+        else{
+            first.prior = n;
+            n.next = first;
             first = n;
-        first.prior = n;
-        n.next = first;
-        first = n;
+        }
         N++;
     }
 
     public static void addInLast(DoubleNode n){
-        for (DoubleNode x = first; ; x = first.next)
-            if (x == null);
+        if (first.next == null && first.prior == null)
+            first = last = n;
+        else{
 
-
+        }
+        N++;
     }
 
     public static void delInFirst(){
