@@ -92,7 +92,4 @@ public class Ex_19_Linked {
        return max;
     }
 
-
-
-
 }
