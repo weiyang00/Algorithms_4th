@@ -68,6 +68,7 @@ public class Ex_37_Josephus {
 
 
     public static void main(String[] args) {
+        System.out.println("input demo ： 7,2  or  5,3" );
         while (!StdIn.isEmpty()) {
             String input = StdIn.readString();
             String[] inputs = input.split(",");
