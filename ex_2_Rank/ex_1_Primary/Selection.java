@@ -24,6 +24,18 @@ public class Selection {
 		}
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
 	/**
 	 * Exercise 2.1.18
 	 * 
