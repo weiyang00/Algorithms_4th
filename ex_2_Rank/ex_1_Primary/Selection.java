@@ -4,6 +4,7 @@ package ex_2_Rank.ex_1_Primary;
 
 import StdLib.In;
 import StdLib.StdDraw;
+import StdLib.StdIn;
 import StdLib.StdOut;
 
 import java.awt.*;
@@ -23,17 +24,6 @@ public class Selection {
 			Example.exch(a, i, min);
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
 
 
 	/**
@@ -84,9 +74,15 @@ public class Selection {
 
 
 	public static void main(String[] args) {
-		String[] a = new In().readAllStrings();
-		sort(a);
-		assert Example.isSorted(a);
-		Example.show(a);
+		System.out.println("input selection demo String : ");
+		System.out.println("1,3,4,5,9,8,7,6,5,0,2");
+		System.out.println("Correct result : 0 1 2 3 4 5 5 6 7 8 9");
+		while (!StdIn.isEmpty()){
+			String s = StdIn.readString();
+			String[] a = s.split(",");
+			sort(a);
+			assert Example.isSorted(a);
+			Example.show(a);
+		}
 	}
 }

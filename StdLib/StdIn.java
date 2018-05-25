@@ -7,8 +7,8 @@ package StdLib; /***************************************************************
  *************************************************************************/
 
 import java.io.BufferedInputStream;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
+import java.util.regex.Pattern;
 
 /**
  *  <i>Standard input</i>. This class provides methods for reading strings
@@ -25,81 +25,210 @@ import java.util.Scanner;
  */
 public final class StdIn {
 
+    /*** begin: section (1 of 2) of code duplicated from In to StdIn. */
+
     // assume Unicode UTF-8 encoding
-    private static String charsetName = "UTF-8";
+    private static final String CHARSET_NAME = "UTF-8";
 
     // assume language = English, country = US for consistency with System.out.
-    private static Locale usLocale = new Locale("en", "US");
+    private static final Locale LOCALE = Locale.US;
 
-    // the scanner object
-    private static Scanner scanner = new Scanner(new BufferedInputStream(System.in), charsetName);
+    // the default token separator; we maintain the invariant that this value
+    // is held by the scanner's delimiter between calls
+    private static final Pattern WHITESPACE_PATTERN = Pattern.compile("\\p{javaWhitespace}+");
 
-    // static initializer
-    static { scanner.useLocale(usLocale); }
+    // makes whitespace significant
+    private static final Pattern EMPTY_PATTERN = Pattern.compile("");
 
-    // singleton pattern - can't instantiate
+    // used to read the entire input
+    private static final Pattern EVERYTHING_PATTERN = Pattern.compile("\\A");
+
+    /*** end: section (1 of 2) of code duplicated from In to StdIn. */
+
+    private static Scanner scanner;
+
+    // it doesn't make sense to instantiate this class
     private StdIn() { }
 
+    //// begin: section (2 of 2) of code duplicated from In to StdIn,
+    //// with all methods changed from "public" to "public static"
 
     /**
-     * Is there only whitespace left on standard input?
+     * Returns true if standard input is empty (except possibly for whitespace).
+     * Use this method to know whether the next call to {@link #readString()},
+     * {@link #readDouble()}, etc will succeed.
+     *
+     * @return {@code true} if standard input is empty (except possibly
+     *         for whitespace); {@code false} otherwise
      */
     public static boolean isEmpty() {
         return !scanner.hasNext();
     }
 
     /**
-     * Return next string from standard input
+     * Returns true if standard input has a next line.
+     * Use this method to know whether the
+     * next call to {@link #readLine()} will succeed.
+     * This method is functionally equivalent to {@link #hasNextChar()}.
+     *
+     * @return {@code true} if standard input is empty;
+     *         {@code false} otherwise
+     */
+    public static boolean hasNextLine() {
+        return scanner.hasNextLine();
+    }
+
+    /**
+     * Returns true if standard input has more inputy (including whitespace).
+     * Use this method to know whether the next call to {@link #readChar()} will succeed.
+     * This method is functionally equivalent to {@link #hasNextLine()}.
+     *
+     * @return {@code true} if standard input has more input (including whitespace);
+     *         {@code false} otherwise
+     */
+    public static boolean hasNextChar() {
+        scanner.useDelimiter(EMPTY_PATTERN);
+        boolean result = scanner.hasNext();
+        scanner.useDelimiter(WHITESPACE_PATTERN);
+        return result;
+    }
+
+
+    /**
+     * Reads and returns the next line, excluding the line separator if present.
+     *
+     * @return the next line, excluding the line separator if present;
+     *         {@code null} if no such line
+     */
+    public static String readLine() {
+        String line;
+        try {
+            line = scanner.nextLine();
+        }
+        catch (NoSuchElementException e) {
+            line = null;
+        }
+        return line;
+    }
+
+    /**
+     * Reads and returns the next character.
+     *
+     * @return the next character
+     * @throws NoSuchElementException if standard input is empty
+     */
+    public static char readChar() {
+        scanner.useDelimiter(EMPTY_PATTERN);
+        String ch = scanner.next();
+        assert ch.length() == 1 : "Internal (Std)In.readChar() error!"
+                + " Please contact the authors.";
+        scanner.useDelimiter(WHITESPACE_PATTERN);
+        return ch.charAt(0);
+    }
+
+
+    /**
+     * Reads and returns the remainder of the input, as a string.
+     *
+     * @return the remainder of the input, as a string
+     * @throws NoSuchElementException if standard input is empty
+     */
+    public static String readAll() {
+        if (!scanner.hasNextLine())
+            return "";
+
+        String result = scanner.useDelimiter(EVERYTHING_PATTERN).next();
+        // not that important to reset delimeter, since now scanner is empty
+        scanner.useDelimiter(WHITESPACE_PATTERN); // but let's do it anyway
+        return result;
+    }
+
+
+    /**
+     * Reads the next token  and returns the {@code String}.
+     *
+     * @return the next {@code String}
+     * @throws NoSuchElementException if standard input is empty
      */
     public static String readString() {
         return scanner.next();
     }
 
     /**
-     * Return next int from standard input
+     * Reads the next token from standard input, parses it as an integer, and returns the integer.
+     *
+     * @return the next integer on standard input
+     * @throws NoSuchElementException if standard input is empty
+     * @throws InputMismatchException if the next token cannot be parsed as an {@code int}
      */
     public static int readInt() {
         return scanner.nextInt();
     }
 
     /**
-     * Return next double from standard input
+     * Reads the next token from standard input, parses it as a double, and returns the double.
+     *
+     * @return the next double on standard input
+     * @throws NoSuchElementException if standard input is empty
+     * @throws InputMismatchException if the next token cannot be parsed as a {@code double}
      */
     public static double readDouble() {
         return scanner.nextDouble();
     }
 
     /**
-     * Return next float from standard input
+     * Reads the next token from standard input, parses it as a float, and returns the float.
+     *
+     * @return the next float on standard input
+     * @throws NoSuchElementException if standard input is empty
+     * @throws InputMismatchException if the next token cannot be parsed as a {@code float}
      */
     public static float readFloat() {
         return scanner.nextFloat();
     }
 
     /**
-     * Return next short from standard input
-     */
-    public static short readShort() {
-        return scanner.nextShort();
-    }
-
-    /**
-     * Return next long from standard input
+     * Reads the next token from standard input, parses it as a long integer, and returns the long integer.
+     *
+     * @return the next long integer on standard input
+     * @throws NoSuchElementException if standard input is empty
+     * @throws InputMismatchException if the next token cannot be parsed as a {@code long}
      */
     public static long readLong() {
         return scanner.nextLong();
     }
 
     /**
-     * Return next byte from standard input
+     * Reads the next token from standard input, parses it as a short integer, and returns the short integer.
+     *
+     * @return the next short integer on standard input
+     * @throws NoSuchElementException if standard input is empty
+     * @throws InputMismatchException if the next token cannot be parsed as a {@code short}
+     */
+    public static short readShort() {
+        return scanner.nextShort();
+    }
+
+    /**
+     * Reads the next token from standard input, parses it as a byte, and returns the byte.
+     *
+     * @return the next byte on standard input
+     * @throws NoSuchElementException if standard input is empty
+     * @throws InputMismatchException if the next token cannot be parsed as a {@code byte}
      */
     public static byte readByte() {
         return scanner.nextByte();
     }
 
     /**
-     * Return next boolean from standard input, allowing "true" or "1" for true,
-     * and "false" or "0" for false
+     * Reads the next token from standard input, parses it as a boolean,
+     * and returns the boolean.
+     *
+     * @return the next boolean on standard input
+     * @throws NoSuchElementException if standard input is empty
+     * @throws InputMismatchException if the next token cannot be parsed as a {@code boolean}:
+     *    {@code true} or {@code 1} for true, and {@code false} or {@code 0} for false,
+     *    ignoring case
      */
     public static boolean readBoolean() {
         String s = readString();
@@ -107,101 +236,163 @@ public final class StdIn {
         if (s.equalsIgnoreCase("false")) return false;
         if (s.equals("1"))               return true;
         if (s.equals("0"))               return false;
-        throw new java.util.InputMismatchException();
+        throw new InputMismatchException();
     }
 
     /**
-     * Does standard input have a next line?
+     * Reads all remaining tokens from standard input and returns them as an array of strings.
+     *
+     * @return all remaining tokens on standard input, as an array of strings
      */
-    public static boolean hasNextLine() {
-        return scanner.hasNextLine();
+    public static String[] readAllStrings() {
+        // we could use readAll.trim().split(), but that's not consistent
+        // because trim() uses characters 0x00..0x20 as whitespace
+        String[] tokens = WHITESPACE_PATTERN.split(readAll());
+        if (tokens.length == 0 || tokens[0].length() > 0)
+            return tokens;
+
+        // don't include first token if it is leading whitespace
+        String[] decapitokens = new String[tokens.length-1];
+        for (int i = 0; i < tokens.length - 1; i++)
+            decapitokens[i] = tokens[i+1];
+        return decapitokens;
     }
 
     /**
-     * Return rest of line from standard input
+     * Reads all remaining lines from standard input and returns them as an array of strings.
+     * @return all remaining lines on standard input, as an array of strings
      */
-    public static String readLine() {
-        return scanner.nextLine();
+    public static String[] readAllLines() {
+        ArrayList<String> lines = new ArrayList<String>();
+        while (hasNextLine()) {
+            lines.add(readLine());
+        }
+        return lines.toArray(new String[0]);
     }
 
     /**
-     * Return next char from standard input
+     * Reads all remaining tokens from standard input, parses them as integers, and returns
+     * them as an array of integers.
+     * @return all remaining integers on standard input, as an array
+     * @throws InputMismatchException if any token cannot be parsed as an {@code int}
      */
-    // a complete hack and inefficient - email me if you have a better
-    public static char readChar() {
-        // (?s) for DOTALL mode so . matches a line termination character
-        // 1 says look only one character ahead
-        // consider precompiling the pattern
-        String s = scanner.findWithinHorizon("(?s).", 1);
-        return s.charAt(0);
-    }
-
-    /**
-     * Return rest of input from standard input
-     */
-    public static String readAll() {
-        if (!scanner.hasNextLine()) return null;
-
-        // reference: http://weblogs.java.net/blog/pat/archive/2004/10/stupid_scanner_1.html
-        return scanner.useDelimiter("\\A").next();
-    }
-
-   /**
-     * Read rest of input as array of ints
-     */
-    public static int[] readInts() {
-        String[] fields = readAll().trim().split("\\s+");
+    public static int[] readAllInts() {
+        String[] fields = readAllStrings();
         int[] vals = new int[fields.length];
         for (int i = 0; i < fields.length; i++)
             vals[i] = Integer.parseInt(fields[i]);
         return vals;
     }
 
-   /**
-     * Read rest of input as array of doubles
+    /**
+     * Reads all remaining tokens from standard input, parses them as longs, and returns
+     * them as an array of longs.
+     * @return all remaining longs on standard input, as an array
+     * @throws InputMismatchException if any token cannot be parsed as a {@code long}
      */
-    public static double[] readDoubles() {
-        String[] fields = readAll().trim().split("\\s+");
+    public static long[] readAllLongs() {
+        String[] fields = readAllStrings();
+        long[] vals = new long[fields.length];
+        for (int i = 0; i < fields.length; i++)
+            vals[i] = Long.parseLong(fields[i]);
+        return vals;
+    }
+
+    /**
+     * Reads all remaining tokens from standard input, parses them as doubles, and returns
+     * them as an array of doubles.
+     * @return all remaining doubles on standard input, as an array
+     * @throws InputMismatchException if any token cannot be parsed as a {@code double}
+     */
+    public static double[] readAllDoubles() {
+        String[] fields = readAllStrings();
         double[] vals = new double[fields.length];
         for (int i = 0; i < fields.length; i++)
             vals[i] = Double.parseDouble(fields[i]);
         return vals;
     }
 
-   /**
-     * Read rest of input as array of strings
+    //// end: section (2 of 2) of code duplicated from In to StdIn
+
+
+    // do this once when StdIn is initialized
+    static {
+        resync();
+    }
+
+    /**
+     * If StdIn changes, use this to reinitialize the scanner.
      */
+    private static void resync() {
+        setScanner(new Scanner(new java.io.BufferedInputStream(System.in), CHARSET_NAME));
+    }
+
+    private static void setScanner(Scanner scanner) {
+        StdIn.scanner = scanner;
+        StdIn.scanner.useLocale(LOCALE);
+    }
+
+    /**
+     * Reads all remaining tokens, parses them as integers, and returns
+     * them as an array of integers.
+     * @return all remaining integers, as an array
+     * @throws InputMismatchException if any token cannot be parsed as an {@code int}
+     * @deprecated Replaced by {@link #readAllInts()}.
+     */
+    @Deprecated
+    public static int[] readInts() {
+        return readAllInts();
+    }
+
+    /**
+     * Reads all remaining tokens, parses them as doubles, and returns
+     * them as an array of doubles.
+     * @return all remaining doubles, as an array
+     * @throws InputMismatchException if any token cannot be parsed as a {@code double}
+     * @deprecated Replaced by {@link #readAllDoubles()}.
+     */
+    @Deprecated
+    public static double[] readDoubles() {
+        return readAllDoubles();
+    }
+
+    /**
+     * Reads all remaining tokens and returns them as an array of strings.
+     * @return all remaining tokens, as an array of strings
+     * @deprecated Replaced by {@link #readAllStrings()}.
+     */
+    @Deprecated
     public static String[] readStrings() {
-        String[] fields = readAll().trim().split("\\s+");
-        return fields;
+        return readAllStrings();
     }
 
 
-
     /**
-     * Unit test
+     * Interactive test of basic functionality.
+     *
+     * @param args the command-line arguments
      */
     public static void main(String[] args) {
 
-        System.out.println("Type a string: ");
+        StdOut.print("Type a string: ");
         String s = StdIn.readString();
-        System.out.println("Your string was: " + s);
-        System.out.println();
+        StdOut.println("Your string was: " + s);
+        StdOut.println();
 
-        System.out.println("Type an int: ");
+        StdOut.print("Type an int: ");
         int a = StdIn.readInt();
-        System.out.println("Your int was: " + a);
-        System.out.println();
+        StdOut.println("Your int was: " + a);
+        StdOut.println();
 
-        System.out.println("Type a boolean: ");
+        StdOut.print("Type a boolean: ");
         boolean b = StdIn.readBoolean();
-        System.out.println("Your boolean was: " + b);
-        System.out.println();
+        StdOut.println("Your boolean was: " + b);
+        StdOut.println();
 
-        System.out.println("Type a double: ");
+        StdOut.print("Type a double: ");
         double c = StdIn.readDouble();
-        System.out.println("Your double was: " + c);
-        System.out.println();
+        StdOut.println("Your double was: " + c);
+        StdOut.println();
 
     }
 
