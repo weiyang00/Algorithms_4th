@@ -23,14 +23,14 @@ public class Quick3Way {
 
     private static void sort(Comparable[] a, int lo, int hi){
         if (hi <= lo) return;
-        int lt = lo, i = lo +1, gt = hi;
+        int lt = lo, i = lo + 1, gt = hi;
         Comparable v = a[lo];
         while (i <= gt){
             int cmp = a[i].compareTo(v);
-            if (cmp < 0) exch(a, lt++, i++);
-            else if (cmp > 0) exch(a, i, gt++);
+            if      (cmp < 0) exch(a, lt++, i++);
+            else if (cmp > 0) exch(a, i, gt--);
             else i++;
-        }
+        }//现在 a[lo..lt-1] < v = a[lt..gt] < a[gt + 1..hi] 成立
         sort(a, lo, lt -1);
         sort(a, gt + 1, hi);
     }
@@ -65,7 +65,7 @@ public class Quick3Way {
 
     public static void main(String[] args) {
         System.out.println("input merge demo String : ");
-        System.out.println("1,3,4,5,9,8,7,6,5,0,2");
+        System.out.println("1,3,4,5,9,8,7,6,0,2");
         System.out.println("Correct result : 0 1 2 3 4 5 5 6 7 8 9");
         while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
