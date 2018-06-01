@@ -35,8 +35,6 @@ public class Quick3Way {
         sort(a, gt + 1, hi);
     }
 
-
-
     private static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
     }
