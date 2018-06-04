@@ -28,6 +28,8 @@ public class MaxPriorityQueues<Key extends Comparable<Key>> {
 		swim(N);
 	}
 
+
+
 	public Key delMax() {
 		Key max = pq[1];
 		exch(1, N--);
