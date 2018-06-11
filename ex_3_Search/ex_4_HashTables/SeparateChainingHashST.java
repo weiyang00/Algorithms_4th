@@ -1,4 +1,4 @@
-package ex_3_Search.ex_3_HashTables;
+package ex_3_Search.ex_4_HashTables;
 
 
 import ex_3_Search.ex_1_SymbolTable.SequentialSearchST;
